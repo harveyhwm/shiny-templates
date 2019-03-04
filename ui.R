@@ -14,16 +14,18 @@ ui <- fluidPage(
   #            $("input#client_time").val(time_now.getTime())
   #            $("input#client_time_zone_offset").val(time_now.getTimezoneOffset())});'),
   
-  tags$div(class='right-logo logoa'),
-  tags$div(class='right-logo logob'),
-  tags$div(class='right-logo-title'),
-  #tags$div(class='loading-overlay',
-  #  tags$div(class='loading-overlay-alchemy'
+  tags$img(class='left-logo',src='logo_alchemy_white.svg'),
+  tags$div(class='tr-mask'),
+  tags$img(class='right-logo logo-1',src='logo_paction_white.svg'),
+  tags$img(class='right-logo logo-2',src='logo_paction_notext_white.svg'),
+  tags$div(class='loading-overlay',
+    tags$div(class='loading-overlay-alchemy'
       #tags$img(src = 'alchemy.svg', class = 'alchemy-overlay-image'),
       #tags$p(class='loading-title','Powering Your Experience....'),
       #tags$div(class='loading-progress')
-  #  )
-  #),
+    )
+  ),
+  
   column(3,
     tags$div(class='filterset',
       tags$div(class='filterbox filter-period',selectInput('period','Period:',periods,selected = '90')),
@@ -33,7 +35,9 @@ ui <- fluidPage(
       tags$div(class='filterbox filter-split filter-group1',selectInput('quarter','Quarter:',c('All Quarters',unique(awards_data$quarter)),selected = 'All Quarters')),
       tags$div(class='filterbox filter-split filter-group1',selectInput('gender','Gender:',c('All Genders',unique(awards_data$gender)),selected = 'All Genders')),
       tags$div(class='filterbox filter-split filter-group1',selectInput('hour','Hour:',c('All Times','Morning','Afternoon','Evening','Night'),selected = 'All Times')),
-      tags$div(class='filterbox filter-split filter-group1',selectInput('province','Province:',c('All Provinces',sort(provinces[!provinces %in% NA])),selected = 'All Provinces'))
+      tags$div(class='filterbox filter-split filter-group1',selectInput('province','Province:',c('All Provinces',sort(provinces[!provinces %in% NA])),selected = 'All Provinces')),
+      tags$div(class='filterbox filter-split filter-group1',selectInput('level','Active Level:',c('All Levels',sort(unique(awards_data$answerValue))),selected = 'All Levels')),
+      tags$div(class='filterbox filter-split filter-group1',selectInput('max_level','L Reached:',c('All Levels',sort(unique(awards_data$max_award_code))),selected = 'All Levels'))
     )
   ),
   column(9,navbarPage('',position='fixed-top',badges,rewards,activity_report,app_report,geo_report))

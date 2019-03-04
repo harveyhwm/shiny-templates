@@ -1,7 +1,7 @@
 document.title = 'ParticipACTION';
 
 //MAKE OVERLAY DISAPPEAR WHEN READY
-/*var overlayChecker = setInterval(function(){
+var overlayChecker = setInterval(function(){
 	try{
 	  if(!!document.querySelector('table').querySelectorAll('tr').length){
 		//console.log('FUCK THE OVERLAY, BABY');
@@ -11,7 +11,7 @@ document.title = 'ParticipACTION';
 		clearInterval(overlayChecker);
 	  }
 	}catch(e){}
-},250)*/
+},250)
 
 function overlayFader(){
 	var opacitynow = 1;
@@ -44,6 +44,25 @@ function shinyResponse(p){
 	var dState = p=='Custom'?false:true;
 	document.querySelectorAll('.input-daterange input')[0].disabled = dState;
 	document.querySelectorAll('.input-daterange input')[1].disabled = dState;	
+}
+
+document.addEventListener('scroll', myScrollFunc, false);
+function myScrollFunc(){
+	//console.log('VINO TINTO!');
+	if(window.pageYOffset > 175){
+		console.log('SCROLL');
+		document.querySelector('.chart_holder').className = 'chart_holder holder_fixed';
+	}
+	else{
+		document.querySelector('.chart_holder').className = 'chart_holder';
+	}
+	//else{
+	//	document.querySelector('.mySortHeaderSet').style.position = 'absolute';
+	//	document.querySelector('.mySortHeaderSet').style.top = '0px';
+	//	document.querySelector('.mySortHeaderSet').style.zIndex = 1000000;
+	//	document.querySelector('.mySortHeaderSet').className = document.querySelector('.mySortHeaderSet').className.split(' fixed')[0];
+	//}
+	//var dims_col = document.querySelectorAll('.drilldown_true.dm tbody tr td:nth-child(3)');
 }
 
 /*
@@ -211,23 +230,6 @@ var myInteractionFunc = function(e){
         	sortActions(target,ix);break;
         }
     }
-}
-
-document.addEventListener("scroll", myScrollFunc, false);
-function myScrollFunc(){
-	//console.log('VINO TINTO!');
-	if(window.pageYOffset > 144){
-		document.querySelector('.mySortHeaderSet').style.position = 'fixed';
-		document.querySelector('.mySortHeaderSet').style.top = '54px'; //(window.pageYOffset+54)+'px';
-		document.querySelector('.mySortHeaderSet').className = document.querySelector('.mySortHeaderSet').className.split(' fixed')[0]+' fixed';
-	}
-	else{
-		document.querySelector('.mySortHeaderSet').style.position = 'absolute';
-		document.querySelector('.mySortHeaderSet').style.top = '0px';
-		document.querySelector('.mySortHeaderSet').style.zIndex = 1000000;
-		document.querySelector('.mySortHeaderSet').className = document.querySelector('.mySortHeaderSet').className.split(' fixed')[0];
-	}
-	var dims_col = document.querySelectorAll('.drilldown_true.dm tbody tr td:nth-child(3)');
 }
 
 setInterval(function(){
