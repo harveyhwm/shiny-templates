@@ -36,7 +36,7 @@ ui <- fluidPage(
       tags$div(class='filterbox filter-split filter-group1',selectInput('gender','Gender:',c('All Genders',unique(awards_data$gender)),selected = 'All Genders')),
       tags$div(class='filterbox filter-split filter-group1',selectInput('hour','Hour:',c('All Times','Morning','Afternoon','Evening','Night'),selected = 'All Times')),
       tags$div(class='filterbox filter-split filter-group1',selectInput('province','Province:',c('All Provinces',sort(provinces[!provinces %in% NA])),selected = 'All Provinces')),
-      tags$div(class='filterbox filter-split filter-group1',selectInput('level','Active Level:',c('All Levels',sort(unique(awards_data$answerValue))),selected = 'All Levels')),
+      tags$div(class='filterbox filter-split filter-group1',selectInput('level','Active Level:',c('All Levels',sort(unique(awards_data$user_selected_level))),selected = 'All Levels')),
       tags$div(class='filterbox filter-split filter-group1',selectInput('max_level','L Reached:',c('All Levels',sort(unique(awards_data$max_award_code))),selected = 'All Levels'))
     )
   ),

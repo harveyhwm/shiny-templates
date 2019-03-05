@@ -89,6 +89,15 @@ reFormat <- function(c){
   c
 }
 
+applyFilters <- function(d,f){
+  for(i in 1:(len(f)/2)){
+    if(!grepl('^All',f[2*i])){
+      d <- eval(parse(text=paste0('d[d$`',f[(2*i)-1],'` == "',f[2*i],'",]')))
+    }
+  }
+  d
+}
+
 #-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 #  GLOBAL CONSTANTS & DEFINITIONS
 #-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -230,11 +239,12 @@ total_awards <- sum(awards_data$count)
 prepare_awards <- function(d,a,f,dates){
   d$date <- as.Date(d$date)
   d <- d[(d$date >= dates[1]) & (d$date <= dates[2]),]
-  for(i in 1:(len(f)/2)){
-    if(!grepl('^All',f[2*i])){
-      d <- eval(parse(text=paste0('d[d$`',f[(2*i)-1],'` == "',f[2*i],'",]')))
-    }
-  }  
+  d <- applyFilters(d,f)
+  #for(i in 1:(len(f)/2)){
+  #  if(!grepl('^All',f[2*i])){
+  #    d <- eval(parse(text=paste0('d[d$`',f[(2*i)-1],'` == "',f[2*i],'",]')))
+  #  }
+  #}  
   s <- setDT(filter(d,d$award_short_description %in% a))
   s1 <- s[,c('award_short_description','count')][,lapply(.SD,sum),by=c('award_short_description')]
   s2 <- s[,c('customer_id','award_short_description','count')][,lapply(.SD,sum),by=c('customer_id','award_short_description')]
@@ -250,7 +260,10 @@ prepare_awards <- function(d,a,f,dates){
   datatable(s,options=list(pageLength=default_rows(50)),escape=F,rownames=F)
 }
 
-prepare_badge_count <- function(d){
+prepare_badge_count <- function(d,f,dates){
+  d$date <- as.Date(d$date)
+  d <- d[(d$date >= dates[1]) & (d$date <= dates[2]),]
+  d <- applyFilters(d,f)
   d$Count <- 1
   s <- d[,c('customer_id','Count')][,lapply(.SD,sum),by=c('customer_id')]
   c_count <- nrow(s)
@@ -271,7 +284,28 @@ prepare_badge_count <- function(d){
   datatable(s2,options=list(pageLength=default_rows(15)),escape=F,rownames=F)
 }
 
-prepare_chart <- function(d){
+prepare_activity <- function(d,f,dates){
+  d$date <- as.Date(d$date)
+  d <- d[(d$date >= dates[1]) & (d$date <= dates[2]),]
+  #for(i in 1:(len(f)/2)){
+  #  if(!grepl('^All',f[2*i])){
+  #    d <- eval(parse(text=paste0('d[d$`',f[(2*i)-1],'` == "',f[2*i],'",]')))
+  #  }
+  #}
+  d$Count <- 1
+  s <- d[,c('user_selected_level','Count')][,lapply(.SD,sum),by=c('user_selected_level')][order(user_selected_level)]
+  s$`% Total` <- 100*s$user_selected_level/sum(s$user_selected_level)
+  s$`Cum Total` <- cumsum(s$`% Total`)
+  setnames(s,old=c('user_selected_level'),new=c('Onboarding Level'))
+  s$`% Total` <- paste0(format(round(s$`% Total`,2),nsmall=2),"%")
+  s$`Cum Total` <- paste0(format(round(s$`Cum Total`,2),nsmall=2),"%")
+  datatable(s,options=list(pageLength=default_rows(10)),escape=F,rownames=F)
+}
+
+prepare_chart <- function(d,f,dates){
+  d$date <- as.Date(d$date)
+  d <- d[(d$date >= dates[1]) & (d$date <= dates[2]),]
+  d <- applyFilters(d,f)
   if(!'count' %in% names(d)){d$count <- 1}
   d <- setDT(d)
   d <- d[,c('date','count')][,lapply(.SD,sum),by = c('date')]
@@ -312,17 +346,10 @@ badges <- tabPanel('Badges',
         tags$div(class='metric_name_box','UNIQUE CUSTOMERS'),
         tags$div(class='metric_name_box','BADGES/CUSTOMER'),
         tags$div(class='metric_name_box','NEW USERS'),
-        tags$div(class='metric_name_box','30-DAY GROWTH'),
-        tags$div(class='metric_name_box metric_last','90-DAY GROWTH')   
+        tags$div(class='metric_name_box','7-DAY GROWTH'),
+        tags$div(class='metric_name_box metric_last','30-DAY GROWTH')   
     ),
-    fluidRow(class='top_metrics',
-        tags$div(class='metric_box','23.44%'),
-        tags$div(class='metric_box','1,744'),
-        tags$div(class='metric_box','1,439'),
-        tags$div(class='metric_box','12.92%'),
-        tags$div(class='metric_box','2.21'),
-        tags$div(class='metric_box metric_last','667')   
-    ),
+    uiOutput('badgeText'),
     fluidRow(
       tags$div(class='table_holder',
         tags$h3(class='h3-float h3-text h3-first','Activity Badges'),
@@ -354,6 +381,18 @@ activity_report <- tabPanel('Activity Report',
   mainPanel(
     fluidRow(
       tags$h2('Activity Level')
+    ),
+    fluidRow(
+      tags$div(class='table_holder',
+               tags$h3(class='h3-float h3-text h3-first','User Onboarding Levels'),
+               tags$div(class='app-table table-expanded',DT::dataTableOutput('activity_table_1')),
+               tags$h3(class='h3-float h3-text h3-first','Activity Level Goals'),
+               tags$div(class='badges-table table-expanded',DT::dataTableOutput('activity_table_2'))
+      )
+      #tags$div(class='chart_holder',
+      #         tags$h3(class='h3-float h3-text h3-first','App Metrics'),
+      #         tags$div(class='chart_top',highchartOutput('app_chart_1'))
+      #
     )
   )
 )

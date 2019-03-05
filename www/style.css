@@ -236,7 +236,7 @@ nav li > a:hover{
 }
 
 .top_metric_names{
-    height: 25px;
+    height: 1.4vw; /*25px;*/
     margin-top: 30px;
 }
 
@@ -247,7 +247,7 @@ nav li > a:hover{
     height: 100%;
     float: left;
     margin-right: 4.4%;
-    font-size: 32px;
+    font-size: 1.9vw; /*32px;*/
     font-family: Rubik;
     font-weight: bold;
     padding-left: 12px;
@@ -255,7 +255,7 @@ nav li > a:hover{
 }
 
 .metric_name_box {
-    font-size: 14px;
+    font-size: 0.85vw; /*14px;*/
     font-family: Rubik;
     font-weight: 400;
     border-bottom: 1px solid #CCC;
@@ -375,7 +375,7 @@ tr td:nth-child(3) span.hier3{
     padding-left: 40px;
 }
 
-tr:hover{
+tbody tr:hover{
     color: #00AADB !important;
     /*font-weight: 550 !important;*/
 }
@@ -2556,7 +2556,7 @@ h3{
 }
 
 .col-sm-3 input{
-    font-size: 10px;
+    font-size: 0.7vw; /*10px;*/
 }
 
 .col-sm-3 div.item,
@@ -2588,15 +2588,15 @@ h3{
 }
 
 .right-logo{
-    top: -57px;
-    right: 45px;
-    width: 280px;
+  top: -49px;
+  right: 45px;
+  width: 250px;
 }
 
 .right-logo.logo-2{
-    right: 3px;
-    top: 1px;
-    width: 39px;
+  right: 6px;
+  top: 4px;
+  width: 33px;
 }
 
 .container-fluid > .col-sm-3 {

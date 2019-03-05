@@ -3,13 +3,51 @@ server <- function(input,output,session){
   output$badges_table_1 <- DT::renderDataTable({prepare_awards(awards_data,c('Weekly Challenge Complete','2-Week Streak','4-Week Streak'),c('gender',input$gender,'age',input$age,'hour',input$hour,'month',input$month,'quarter',input$quarter,'Province',input$province,'answerValue',input$level,'max_award_code',input$max_level),dvals$data)}) #'date',input$date,
   output$badges_table_2 <- DT::renderDataTable({prepare_awards(awards_data,c('Onboarding Complete','Health Data Synced','Push Notifications Enabled','Answered Questions','Read 5 Articles','Watched 5 Videos','Share on Social','Opened App','You Took 10!'),c('gender',input$gender,'age',input$age,'hour',input$hour,'month',input$month,'quarter',input$quarter,'Province',input$province,'answerValue',input$level,'max_award_code',input$max_level),dvals$data)})
   output$badges_table_3 <- DT::renderDataTable({prepare_awards(awards_data,c('50 Minutes Milestone','100 Minutes Milestone','150 Minute Milestone','200 Minute Milestone','250 Minute Milestone','300 Minutes Milestone','350 Minute Milestone','400 Minute Milestone','450 Minute Milestone','500 Minute Milestone','550 Minutes Milestone','600 Minute Milestone','650 Minute Milestone','700 Minute Milestone','750 Minute Milestone','800 Minute Milestone','850 Minute Milestone','900 Minute Milestone','950 Minute Milestone'),c('gender',input$gender,'age',input$age,'hour',input$hour,'month',input$month,'quarter',input$quarter,'Province',input$province,'answerValue',input$level,'max_award_code',input$max_level),dvals$data)})
-  output$badges_table_4 <- DT::renderDataTable({prepare_badge_count(awards_data)})
+  output$badges_table_4 <- DT::renderDataTable({prepare_badge_count(awards_data,c('gender',input$gender,'age',input$age,'hour',input$hour,'month',input$month,'quarter',input$quarter,'Province',input$province,'answerValue',input$level,'max_award_code',input$max_level),dvals$data)})
 
+  # BADGES TEXT #
+  output$text_badges_1 <- renderText(format(sum(awards_data[awards_data$date >= dvals$data[1] && awards_data$date <= dvals$data[2],]$count),big.mark=","))
+  output$text_badges_2 <- renderText(format(len(unique(awards_data[awards_data$date >= dvals$data[1] && awards_data$date <= dvals$data[2],]$customer_id)),big.mark=","))
+  output$text_badges_3 <- renderText(round(sum(awards_data[awards_data$date >= dvals$data[1] && awards_data$date <= dvals$data[2],]$count)/len(unique(awards_data[awards_data$date >= dvals$data[1] && awards_data$date <= dvals$data[2],]$customer_id)),2))
+  output$text_badges_4 <- renderText(len(setdiff(unique(awards_data[awards_data$date >= dvals$data[1] && awards_data$date <= dvals$data[2],]$customer_id),unique(awards_data[awards_data$date >= dvals$data[1]-(dvals$data[2]-dvals$data[1]) && awards_data$date <= dvals$data[2]-(dvals$data[2]-dvals$data[1]),]$customer_id))))
+  output$text_badges_5 <- renderText((sum(awards_data[awards_data$date >= dvals$data[1] && awards_data$date <= dvals$data[2],]$count)-sum(awards_data[awards_data$date >= dvals$data[1]-30 && awards_data$date <= dvals$data[2]-30,]$count))/sum(awards_data[awards_data$date >= dvals$data[1]-30 && awards_data$date <= dvals$data[2]-30,]$count))
+  output$text_badges_6 <- renderText((sum(awards_data[awards_data$date >= dvals$data[1] && awards_data$date <= dvals$data[2],]$count)-sum(awards_data[awards_data$date >= dvals$data[1]-90 && awards_data$date <= dvals$data[2]-90,]$count))/sum(awards_data[awards_data$date >= dvals$data[1]-90 && awards_data$date <= dvals$data[2]-90,]$count))
+  
+  output$badgeText <- renderUI({
+    diff <- 1+dvals$data[2]-dvals$data[1]
+    f_list <- c('gender',input$gender,'age',input$age,'hour',input$hour,'month',input$month,'quarter',input$quarter,'Province',input$province,'answerValue',input$level,'max_award_code',input$max_level)
+    a1 <- awards_data[awards_data$date >= dvals$data[1] && awards_data$date <= dvals$data[2],]
+    a2 <- awards_data[awards_data$date >= dvals$data[1]-diff && awards_data$date <= dvals$data[2]-diff,]
+    a3 <- awards_data[awards_data$date >= dvals$data[1]-7 && awards_data$date <= dvals$data[2]-7,]
+    a4 <- awards_data[awards_data$date >= dvals$data[1]-30 && awards_data$date <= dvals$data[2]-30,]
+    a1 <- applyFilters(a1,f_list)
+    a2 <- applyFilters(a2,f_list)
+    a3 <- applyFilters(a1,f_list)
+    a4 <- applyFilters(a2,f_list)
+    a2 <- len(unique(a2$customer_id))
+    count <- sum(a1$count)
+    count7 <- sum(a3$count)
+    count30 <- sum(a4$count)
+    diff7 <- ifelse(count7 < 1,'N/A',paste0(format(round((count-count7)/count7,2),nsmall=2),'%'))
+    diff30 <- ifelse(count30 < 1,'N/A',paste0(format(round((count-count30)/count30,2),nsmall=2),'%'))
+    cid <- len(unique(a1$customer_id))
+    fluidRow(class='top_metrics',tags$div(class='metric_box',format(count,big.mark=',')),
+    tags$div(class='metric_box',format(cid,big.mark=',')),
+    tags$div(class='metric_box',format(round(count/cid,2),nsmall=2)),
+    tags$div(class='metric_box',format(setdiff(len(unique(a1$customer_id)),a2),big.mark=',')),
+    tags$div(class='metric_box',diff7),
+    tags$div(class='metric_box metric_last',diff30))
+  })
+  
+  # ACTIVITY TABLES #
+  output$activity_table_1 <- DT::renderDataTable({prepare_activity(awards_data,NULL,dvals$data)})
+  output$activity_table_2 <- DT::renderDataTable({prepare_awards(awards_data,c('50 Minutes Milestone','100 Minutes Milestone','150 Minute Milestone','200 Minute Milestone','250 Minute Milestone','300 Minutes Milestone','350 Minute Milestone','400 Minute Milestone','450 Minute Milestone','500 Minute Milestone','550 Minutes Milestone','600 Minute Milestone','650 Minute Milestone','700 Minute Milestone','750 Minute Milestone','800 Minute Milestone','850 Minute Milestone','900 Minute Milestone','950 Minute Milestone'),c('gender',input$gender,'age',input$age,'hour',input$hour,'month',input$month,'quarter',input$quarter,'Province',input$province,'answerValue',input$level,'max_award_code',input$max_level),dvals$data)})
+  
   # APP TABLES #
   output$app_table_1 <- DT::renderDataTable({prepare_app(app_data,NULL,dvals$data)})
 
   # CHARTS #
-  output$badges_chart_1 <- renderHighchart({prepare_chart(awards_data)})
+  output$badges_chart_1 <- renderHighchart({prepare_chart(awards_data,c('gender',input$gender,'age',input$age,'hour',input$hour,'month',input$month,'quarter',input$quarter,'Province',input$province,'answerValue',input$level,'max_award_code',input$max_level),dvals$data)})
   output$app_chart_1 <- renderHighchart({prepare_chart(app_data)})
   
   #metrics1 <- c('Total','Unique Users','New Users','Earned','Earned To Date','Remaining','% Remaining')
