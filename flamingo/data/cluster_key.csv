@@ -1,0 +1,10 @@
+﻿Combined,Matrix Position,votepropensity2017g_buckets,sy_vch_index_buckets,Budget Allocation,Dollars based on Budget
+vote_bucket_lowvch_bucket_low,republican x low,vote_bucket_low,vch_bucket_low,0%, $-   
+vote_bucket_medvch_bucket_low,republican x medium,vote_bucket_med,vch_bucket_low,5%," $4,100 "
+vote_bucket_highvch_bucket_low,republican x high,vote_bucket_high,vch_bucket_low,0%, $-   
+vote_bucket_lowvch_bucket_med,persaud x low,vote_bucket_low,vch_bucket_med,20%," $16,400 "
+vote_bucket_medvch_bucket_med,persaud x med,vote_bucket_med,vch_bucket_med,20%," $16,400 "
+vote_bucket_highvch_bucket_med,persaud x high,vote_bucket_high,vch_bucket_med,30%," $24,600 "
+vote_bucket_lowvch_bucket_high,democrats x low,vote_bucket_low,vch_bucket_high,10%," $8,200 "
+vote_bucket_medvch_bucket_high,democrats x med ,vote_bucket_med,vch_bucket_high,10%," $8,200 "
+vote_bucket_highvch_bucket_high,democrats x high ,vote_bucket_high,vch_bucket_high,5%," $4,100 "

@@ -1,0 +1,9 @@
+.DS_Store
+.ipynb_checkpoints
+backup/
+flamingo/www/
+kookaburra/www/
+kookaburra/data/
+sandbox1/
+sandbox2/
+sandbox3/

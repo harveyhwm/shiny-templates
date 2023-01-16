@@ -1,0 +1,41 @@
+Query,Category
+"(""rick snyder"" OR ""governor snyder"")",Rick Snyder
+"""bill schuette""",Bill Schuette
+"(""senator colbeck"" OR ""patrick colbeck"")",Patrick Colbeck
+"""brian calley""",Brian Calley
+"""gretchen whitmer""",Gretchen Whitmer
+"(""abdul el-sayed"" OR ""abdul el sayed"")",Abdul E-Sayed
+"""shri thanedar""",Shri Thanedar
+"(""democrats"" OR ""democrat"")",Democrats
+"(""republicans"" OR ""republican"")",Republicans
+"""trump""",Donald Trump
+"(""gubernatorial"" OR ""election"") AND (""democrat"" OR ""democrats"")",Gubernatorial Election: Democrat
+"(""gubernatorial"" OR ""election"") AND (""republican"" OR ""republicans"")",Gubernatorial Election: Republican
+"(""policy"" OR ""policies"") AND (""democrat"" OR ""democrats"")",Policy: Democrat
+"(""policy"" OR ""policies"") AND (""republican"" OR ""republicans"")",Policy: Republican
+republican view education OR demographic view education OR tuition fees,Education
+road safety OR highway infrastructure OR road construction OR highway construction OR bridge construction,Infrastructure
+environment OR global warming OR pollution OR environmental issues OR air quality,Environmental: General
+water flint OR clean water OR flint water OR enbridge pipeline OR line 5 pipeline OR oil spills OR water pollution OR dirty water,Environmental: Flint Water
+unemployment OR poverty,Unemployment
+equality OR racism OR human rights OR civil rights,Civil Rights & Equality
+abortion rights OR right to life OR pro-choice OR pro choice OR abortion debate,Abortion: Pro-Choice
+elderly OR retirement OR pensions OR pension plan,Seniors Issues
+opioid OR opioids,Opioid Crisis
+obamacare OR healthcare OR health care OR health insurance OR medicare OR medicaid,Healthcare
+marijuana legalization OR legalization of marijuana OR legalization of weed OR legalize marajuana OR legalize weed,Legalization fo Marijuana
+"""jim hines""",Jim Hines
+"((""republican"" AND ""view"" AND ""education"") OR (""demographic"" AND ""view"" AND ""education"") OR (""tuition"" AND ""fees"") OR ((""schools"" OR ""school"") AND (""choice"" OR ""charter"")) OR ""education system"" OR ""K-12"" OR ""K12"")",Education
+"((""road"" OR ""roads"" OR ""highway"" OR ""highways"" OR ""bridge"" OR ""bridges"" OR ""hydro"" OR ""pipeline"") AND (""safety"" OR ""infrastructure"" OR ""crumbling"" OR ""disrepair"" OR ""construction""))",Infrastructure
+"(""environmental"" OR ""global warming"" OR ""pollution"" OR (""environmental"" AND (""laws"" OR ""regulations"" OR ""issues"")))",Environmental: General
+"((""flint"" AND ""water"") OR (""lead"" AND (""pipes"" OR ""poisoning"")))",Environmental: Flint Water
+"((""clean"" AND ""water"") OR ((""enbridge"" OR (""line"" AND ""5"") OR ""mackinac"" OR ""oil"" OR ""leak"" OR ""leaks"") AND (""pipeline"" OR ""tunnel"")) OR (""oil"" AND (""spills"" OR ""spill"" OR ""slick"")) OR (""water"" AND ""pollution"") OR ""mercury"" OR ""arsenic"")",Environmental: Pipelines & Oil Spills
+"((""air"" AND (""clean"" OR ""quality"" OR ""pollution"" OR ""smoke"" OR ""smog"")) OR ""asthma"" OR ""incinerator"" OR ""emissions"" OR ""greenhouse emissions"" OR (""detroit"" AND ""incinerator""))",Environmental: Air Quality
+"(""unemployment"" OR ""poverty"")",Unemployment
+"(""equality"" OR ""racism"" OR ((""human"" OR ""civil"") AND ""rights"") OR ""islamophobia"" OR ""immigration"")",Civil Rights & Equality
+"((""abortion"" AND ""rights"") OR ""pro-choice"" OR ""pro choice"" OR ""abortion debate"" OR ""title X"" OR ""title-X"")",Abortion: Pro-Choice
+"(""right to life"" OR ""pro-life"" OR ""pro life"" OR (""aborton"" AND ""murder""))",Right To Life
+"(""birth control"" OR ((""women"" OR ""womens"" OR ""women%27s"" OR ""female"") AND ""health"") OR (""contraception"" AND (""cost"" OR ""coverage"" OR ""insurance"")))",Birth Control
+"((""marijuana"" OR ""weed"") AND (""legal"" OR ""legalize"" OR ""legalization""))",Legalization fo Marijuana
+"(((""gun"" OR ""guns"" OR ""firearm"" OR ""weapon"" OR ""firearms"" OR ""weapons"") AND (""legislation"" OR ""safe"" OR ""law"" OR ""safety"" OR ""policy"" OR ""crime"" OR ""violence"" OR ""concealed"" OR ""permit"")) OR ((""mass"" OR ""school"") AND (""shooting"" OR ""shootings"" OR ""killing"" OR ""killings"")) OR ""second amendment"")",Second Amendment Rights
+"""planned parenthood""",Planned Parenthood

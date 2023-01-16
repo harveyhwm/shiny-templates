@@ -1,0 +1,54 @@
+Query,Topic,TopicRollup,Coalition
+"(""lcv"" OR ""league of conservation voters"") AND (province:mi)",League of Conservation Voters,League of Conservation Voters,LCV
+"(""planned parenthood"") AND (province:mi)",Planned Parenthood,Planned Parenthood,Planned Parenthood
+"(""progress michigan"") AND (province:mi)",Progress Michigan,Progress Michigan,Progress Michigan
+"(""democrats"" OR ""democrat"") AND (province:mi)",Democrats,Democrats,All
+"(""republicans"" OR ""republican"") AND (province:mi)",Republicans,Republicans,All
+"""trump"" AND (province:mi)",Donald Trump,Donald Trump,All
+"(""gubernatorial"" OR ""election"") AND (""democrat"" OR ""democrats"") AND (province:mi)",Gubernatorial Election: Democrat,Gubernatorial Election: Democrat,All
+"(""gubernatorial"" OR ""election"") AND (""republican"" OR ""republicans"") AND (province:mi)",Gubernatorial Election: Republican,Gubernatorial Election: Republican,All
+"(""policy"" OR ""policies"") AND (""democrat"" OR ""democrats"") AND (province:mi)",Policy: Democrat,Policy: Democrat,All
+"(""policy"" OR ""policies"") AND (""republican"" OR ""republicans"") AND (province:mi)",Policy: Republican,Policy: Republican,All
+"(""rick snyder"" OR ""governor snyder"") AND (province:mi)",Rick Snyder,Rick Snyder,All
+"""bill schuette"" AND (province:mi)",Bill Schuette,Bill Schuette,All
+"(""senator colbeck"" OR ""patrick colbeck"") AND (province:mi)",Patrick Colbeck,Patrick Colbeck,All
+"""brian calley"" AND (province:mi)",Brian Calley,Brian Calley,All
+"""gretchen whitmer"" AND (province:mi)",Gretchen Whitmer,Gretchen Whitmer,All
+"(""abdul el-sayed"" OR ""abdul el sayed"") AND (province:mi)",Abdul E-Sayed,Abdul E-Sayed,All
+"""shri thanedar"" AND (province:mi)",Shri Thanedar,Shri Thanedar,All
+"(""bill cobbs"" OR ""william cobbs"") AND (province:mi)",Bill Cobbs,Bill Cobbs,All
+"((""republican"" AND ""view"" AND ""education"") OR (""demographic"" AND ""view"" AND ""education"") OR (""tuition"" AND ""fees"") OR ((""schools"" OR ""school"") AND (""choice"" OR ""charter""))) AND (province:mi)",Education,Education,Progress Michigan
+"((""road"" OR ""roads"" OR ""highway"" OR ""highways"" OR ""bridge"" OR ""bridges"" OR ""hydro"" OR ""pipeline"") AND (""safety"" OR ""infrastructure"" OR ""crumbling"" OR ""disrepair"" OR ""construction"")) AND (province:mi)",Infrastructure,Infrastructure,Progress Michigan
+"(""environmental"" OR ""global warming"" OR ""pollution"" OR ""environmental issues"") AND (province:mi)",Environmental: General,Environment,LCV
+"((""flint"" AND ""water"") OR (""lead"" AND (""pipes"" OR ""poisoning""))) AND (province:mi)",Environmental: Flint Water,Environment,LCV
+"((""clean"" AND ""water"") OR ((""enbridge"" OR (""line"" AND ""5"") OR ""mackinac"" OR ""oil"" OR ""leak"" OR ""leaks"") AND (""pipeline"" OR ""tunnel"")) OR (""oil"" AND (""spills"" OR ""spill"" OR ""slick"")) OR (""water"" AND ""pollution"") OR ""mercury"" OR ""arsenic"") AND (province:mi)",Environmental: Pipelines & Oil Spills,Environment,LCV
+"((""air"" AND (""clean"" OR ""quality"" OR ""pollution"" OR ""smoke"" OR ""smog"")) OR ""asthma"" OR (""detroit"" AND ""incinerator"")) AND (province:mi)",Environmental: Air Quality,Environment,LCV
+"(""unemployment"" OR ""poverty"") AND (province:mi)",Unemployment,Unemployment,Progress Michigan
+"(""equality"" OR ""racism"" OR ((""human"" OR ""civil"") AND ""rights"") OR ""islamophobia"") AND (province:mi)",Civil Rights & Equality,Civil Rights & Equality,Progress Michigan
+"((""abortion"" AND ""rights"") OR ""pro-choice"" OR ""pro choice"" OR ""abortion debate"" OR ""title X"" OR ""title-X"") AND (province:mi)",Abortion: Pro-Choice,Abortion & Birth Control,Planned Parenthood
+"(""right to life"" OR ""pro-life"" OR ""pro life"" OR (""aborton"" AND ""murder"")) AND (province:mi)",Right To Life,Abortion & Birth Control,Planned Parenthood
+"(""birth control"" OR ((""women"" OR ""womens"" OR ""women's"" OR ""female"") AND ""health"") OR (""contraception"" AND (""cost"" OR ""coverage"" OR ""insurance""))) AND (province:mi)",Birth Control,Abortion & Birth Control,Planned Parenthood
+"(""elderly"" OR ""retirement"" OR ""pensions"" OR ""pension"" OR ""pension plan"") AND (province:mi)",Seniors Issues,Seniors Issues,Progress Michigan
+"(""opioid"" OR ""opioids"") AND (province:mi)",Opioid Crisis,Healthcare,Progress Michigan
+"(""obamacare"" OR ""healthcare"" OR ""health care"" OR ""health insurance"" OR ""medicare"" OR ""medicaid"") AND (province:mi)",Healthcare,Healthcare,Progress Michigan
+"((""marijuana"" OR ""weed"") AND (""legal"" OR ""legalize"" OR ""legalization"")) AND (province:mi)",Legalization of Marijuana,Legalization of Marijuana,Progress Michigan
+"(((""gun"" OR ""guns"" OR ""firearm"" OR ""weapon"" OR ""firearms"" OR ""weapons"") AND (""legislation"" OR ""safe"" OR ""law"" OR ""safety"" OR ""policy"" OR ""crime"" OR ""violence"" OR ""concealed"" OR ""permit"")) OR ((""mass"" OR ""school"") AND (""shooting"" OR ""shootings"" OR ""killing"" OR ""killings"")) OR ""second amendment"") AND (province:mi)",Second Amendment Rights,Second Amendment Rights,Progress Michigan
+bill schuette AND (province:mi),Bill Schuette,Bill Schuette,All
+"""jim hines"" AND (province:mi)",Jim Hines,Jim Hines,All
+"""planned parenthood"" AND (province:mi)",Planned Parenthood,Planned Parenthood,Planned Parenthood
+"""progress michigan"" AND (province:mi)",Progress Michigan,Progress Michigan,Progress Michigan
+"""schuette"" AND (province:mi)",Bill Schuette,Bill Schuette,All
+"(""democrat policy"" OR ""democrat policies"" OR ""democrats policy"" OR ""democrats policies"") AND (province:mi)",Policy: Democrat,Policy: Democrat,All
+"(""environmental"" OR ""global warming"" OR ""pollution"" OR (""environmental"" AND (""laws"" OR ""regulations"" OR ""issues""))) AND (province:mi)",Environmental: General,Environment,LCV
+"(""equality"" OR ""racism"" OR ((""human"" OR ""civil"") AND ""rights"") OR ""islamophobia"" OR ""immigration"") AND (province:mi)",Civil Rights & Equality,Civil Rights & Equality,Progress Michigan
+"(""gubernatorial election democrat"" OR ""gubernatorial election democrats"") AND (province:mi)",Gubernatorial Election: Democrat,Gubernatorial Election: Democrat,All
+"(""gubernatorial election republican"" OR ""gubernatorial election republicans"") AND (province:mi)",Gubernatorial Election: Republican,Gubernatorial Election: Republican,All
+"(""republican policy"" OR ""republican policies"" OR ""republican policy"" OR ""republican policies"") AND (province:mi)",Policy: Republican,Policy: Republican,All
+"((""air"" AND (""clean"" OR ""quality"" OR ""pollution"" OR ""smoke"" OR ""smog"")) OR ""asthma"" OR ""incinerator"" OR ""emissions"" OR ""greenhouse emissions"" OR (""detroit"" AND ""incinerator"")) AND (province:mi)",Environmental: Air Quality,Environment,LCV
+"((""republican"" AND ""view"" AND ""education"") OR (""demographic"" AND ""view"" AND ""education"") OR (""tuition"" AND ""fees"") OR ((""schools"" OR ""school"") AND (""choice"" OR ""charter"")) OR ""education system"" OR ""K-12"" OR ""K12"") AND (province:mi)",Education,Education,All
+(democrats OR democrat) AND (province:mi),Democrats,Democrats,All
+(republicans OR republican) AND (province:mi),Republicans,Republicans,All
+trump AND (province:mi),Donald Trump,Donald Trump,All
+"(""devos"" OR ""vos"") AND (province:mi)",Betsy DeVos,Betsy DeVos,Progress Michigan
+"(""second amendment"" OR ""2nd amendment"" OR (""gun"" AND ""rights"") OR ""nra"" OR (""gun"" AND ""ownership"") OR (""gun"" AND ""lobby"")) AND (province:mi)",Second Amendment Rights,Second Amendment Rights,Progress Michigan
+"((""gun"" AND (""violence"" OR ""crime"")) OR ((""mass"" OR ""school"") AND (""shooting"" OR ""shootings"" OR ""killing"" OR ""killings""))) AND (province:mi)",Gun Crime,Gun Crime,Progress Michigan
